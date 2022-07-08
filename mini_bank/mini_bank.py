@@ -39,7 +39,7 @@ class MiniBank:
             case '4' | "LOGOUT":
                 ui.logout()
             case _:
-                ui.operacao_invalida()
+                ui.operacao_invalida(titulo=self.TITULO)
                 self.interpretar_escolha()
                 
     def menu_principal(self):

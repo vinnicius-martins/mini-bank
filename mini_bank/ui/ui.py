@@ -37,27 +37,27 @@ def carregamento() -> None:
 
 def finaliza_execucao() -> None:
     limpar_console()
+    display_titulo('FINALIZANDO')
     print('Finalizando a execução', end='', flush=True)
     carregamento()
     
 
-def operacao_invalida() -> None:
+def operacao_invalida(titulo: str) -> None:
     limpar_console()
-
+    display_titulo(titulo)
     print('Opção Inválida! Por favor escolha uma das opções abaixo:')
     display_operacoes()
 
 
 def logout() -> None:
     limpar_console()
-
+    display_titulo('LOGOUT')
     print('Fazendo logout', end='', flush=True)
     carregamento()
 
 
 def solicitar_cpf(titulo: str) -> None:
     limpar_console()
-
     display_titulo(titulo)
     print(f'Bem vindo ao {titulo}!')
     print(' - Para continuar, insira seu CPF.')
@@ -70,10 +70,9 @@ def cpf_invalido() -> None:
 
 def display_menu_principal(titulo: str, nome_usuario: str, saldo: float) -> None:
     limpar_console()
-    
     display_titulo(titulo)
     print(f"Olá, {nome_usuario}.")
-    print(f"Saldo: R$ {saldo:.2f}\n")
+    print(f"Saldo: R${saldo:.2f}\n")
     print("Por favor, escolha a operação desejada:")
     display_operacoes()
 
@@ -104,7 +103,7 @@ def valor_invalido():
 
 def continuar_sem_centavos(valor):
     print('O valor não pode conter centavos. A operação deve acontecer apenas com notas.')
-    print(f'Deseja prosseguir com o valor de R$ {valor//1:.2f}? (S/N)')
+    print(f'Deseja prosseguir com o valor de R${valor//1:.2f}? (S/N)')
 
     resposta = console_input()
     while resposta not in ("S", "N"):
@@ -116,8 +115,9 @@ def continuar_sem_centavos(valor):
 
 def operacao_sucesso(operacao: str, saldo: float):
     limpar_console()
+    display_titulo(operacao)
     print(f'{operacao} realizado com sucesso!')
-    print(f'Novo saldo: {saldo:.2f}')
+    print(f'Novo saldo: R${saldo:.2f}')
     
     
 def voltar_ao_menu_principal():
@@ -132,6 +132,7 @@ def voltar_ao_menu_principal():
         
 def saque_invalido():
     limpar_console()
+    display_titulo('SAQUE')
     print('O valor solicitado para saque é maior que o saldo atual.')
     sleep(2)
     

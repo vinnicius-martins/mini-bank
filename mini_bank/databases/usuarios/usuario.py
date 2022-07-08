@@ -29,8 +29,8 @@ class Usuario(UsuariosDB):
         if extrato:
             for registro in extrato:
                 operacao = registro['operacao']
-                valor = f"R$ {registro['valor']:.2f}"
-                saldo = f"R$ {registro['saldo']:.2f}"
+                valor = f"R${registro['valor']:.2f}"
+                saldo = f"R${registro['saldo']:.2f}"
                 data = registro['data']
                 
                 print(f"{operacao:<10}{valor:<22}{saldo:<15}{data}")
