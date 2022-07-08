@@ -17,7 +17,7 @@ class Usuario(UsuariosDB):
             self.cadastrar_usuario()
             
     def cadastrar_usuario(self):
-        print('Para abrir sua conta, insira seu nome:')
+        print('\nPara abrir sua conta, insira seu nome:')
         self.nome = input('> ')
         self.insert()
         
@@ -37,6 +37,6 @@ class Usuario(UsuariosDB):
         else:
             print('Não existe movimentação.')
     
-        print(f'\n\nSaldo Atual: {self.saldo}')
+        print(f'\n\nSaldo Atual: R${self.saldo:.2f}')
         input('Pressione enter para voltar ao menu principal...')
         
